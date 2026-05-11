@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentación — Unidad 1 — PPV</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="../../../css/styles.css" />
+</head>
+<body>
+  <div id="overlay"></div>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div id="content">
+      <header id="topbar" class="top-navbar"></header>
+      <main class="page-content">
+
+        <div class="pdf-title-bar">
+          <h1><i class="fas fa-chalkboard-teacher me-2" style="color:var(--accent-primary)"></i>Presentación</h1>
+          <p>Unidad 1 — Ingeniería de Requerimientos</p>
+        </div>
+
+        <div class="pdf-embed-container">
+          <iframe
+            src="./Unidad 1.- Ingeniería de requerimientos.pdf"
+            title="Presentación — Ingeniería de Requerimientos">
+          </iframe>
+        </div>
+
+      </main>
+      <footer id="page-footer" class="page-footer"></footer>
+    </div>
+  </div>
+
+  <script src="../../../js/main.js"></script>
+  <script>
+    initPage({
+      basePath:  '../../../',
+      activePage: 'presentacion',
+      pageTitle: 'Presentación',
+      pageIcon:  'fas fa-chalkboard-teacher'
+    });
+  </script>
+</body>
+</html>
