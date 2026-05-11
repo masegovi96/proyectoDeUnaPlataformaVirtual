@@ -1,106 +1,104 @@
-<!DOCTYPE html>
-<html lang="es">
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Herramientas de la clase &mdash; PPV</title>
+  <title>Herramientas de la clase — PPV</title>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet" href="../../css/styles.css" />
 </head>
 
 <body>
+
   <div id="overlay"></div>
-  <nav id="sidebar" aria-label="Menu principal"></nav>
 
-  <div id="content">
+  <div class="app-container">
 
-    <header id="topbar" class="top-navbar"></header>
+    <aside class="sidebar" id="sidebar"></aside>
 
-    <main class="page-content">
+    <div id="content">
 
-      <div class="page-hero">
-        <i class="fas fa-wrench hero-icon"></i>
-        <h1><i class="fas fa-tools me-2"></i>Herramientas de la clase</h1>
-        <p class="subtitle">Recursos y accesos necesarios para el cuatrimestre</p>
-      </div>
+      <header id="topbar" class="top-navbar"></header>
 
-      <div class="row g-4">
+      <main class="page-content">
 
-        <div class="col-12 col-lg-6">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fab fa-google"></i> Google Classroom
-            </div>
-            <div class="card-body d-flex flex-column gap-3">
-
-              <div>
-                <p class="card-subheading mb-2">
-                  <i class="fas fa-key me-1"></i> Codigo de la clase
-                </p>
-                <div class="tool-code-display" id="classroomCode">bmyp6hmg</div>
-                <button
-                  class="btn btn-outline-secondary btn-sm mt-2 w-100"
-                  onclick="copyText(document.getElementById('classroomCode').innerText.trim(), this)">
-                  <i class="fas fa-copy me-1"></i> Copiar codigo
-                </button>
-              </div>
-
-            </div>
-          </div>
+        <div class="page-hero">
+          <i class="fas fa-wrench hero-icon"></i>
+          <h1><i class="fas fa-tools me-2"></i>Herramientas de la clase</h1>
+          <p class="subtitle">Recursos y accesos necesarios para el cuatrimestre</p>
         </div>
 
-        <div class="col-12 col-lg-6">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fab fa-github"></i> Repositorio GitHub
-            </div>
-            <div class="card-body d-flex flex-column gap-3">
-              <div class="qr-wrapper">
-                <img
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fgithub.com%2Fmasegovi96%2FproyectoDeUnaPlataformaVirtual"
-                  alt="QR para clonar el repositorio"
-                  width="220" height="220"
-                  loading="lazy"
-                />
-                <p class="mt-2 mb-0 text-body-secondary qr-caption">
-                  Escanea con la camara de tu telefono
-                </p>
-              </div>
+        <div class="row g-4">
 
-              <div>
-                <p class="card-subheading mb-1">
-                  <i class="fas fa-terminal me-1"></i> Comando de clonado
-                </p>
-                <div class="clone-cmd" id="cloneCmd">
-                  <span class="cmd-prompt">$</span>
-                  <span>git clone https://github.com/masegovi96/proyectoDeUnaPlataformaVirtual.git</span>
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
+              <div class="card-header">
+                <i class="fab fa-google"></i> Google Classroom
+              </div>
+              <div class="card-body d-flex flex-column gap-3">
+                <div>
+                  <p class="card-subheading mb-2">
+                    <i class="fas fa-key me-1"></i> Código de la clase
+                  </p>
+                  <div class="tool-code-display" id="classroomCode">bmyp6hmg</div>
                   <button
-                    class="btn-copy"
-                    onclick="copyText('git clone https://github.com/masegovi96/proyectoDeUnaPlataformaVirtual.git', this)"
-                    title="Copiar comando">
-                    <i class="fas fa-copy"></i>
+                    class="btn btn-outline-secondary btn-sm mt-2 w-100"
+                    onclick="copyText(document.getElementById('classroomCode').innerText.trim(), this)">
+                    <i class="fas fa-copy me-1"></i> Copiar código
                   </button>
                 </div>
               </div>
-
             </div>
           </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
+              <div class="card-header">
+                <i class="fab fa-github"></i> Repositorio GitHub
+              </div>
+              <div class="card-body d-flex flex-column gap-3">
+                <div class="qr-wrapper">
+                  <img
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fgithub.com%2Fmasegovi96%2FproyectoDeUnaPlataformaVirtual"
+                    alt="QR para clonar el repositorio"
+                    width="220" height="220"
+                    loading="lazy"
+                  />
+                  <p class="qr-caption">Escanea con la cámara de tu teléfono</p>
+                </div>
+
+                <div>
+                  <p class="card-subheading mb-1">
+                    <i class="fas fa-terminal me-1"></i> Comando de clonado
+                  </p>
+                  <div class="clone-cmd" id="cloneCmd">
+                    <span class="cmd-prompt">$</span>
+                    <span>git clone https://github.com/masegovi96/proyectoDeUnaPlataformaVirtual.git</span>
+                    <button
+                      class="btn-copy"
+                      onclick="copyText('git clone https://github.com/masegovi96/proyectoDeUnaPlataformaVirtual.git', this)"
+                      title="Copiar comando">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
         </div>
 
+      </main>
 
-      </div>
-
-    </main>
-
-    <footer id="page-footer" class="page-footer"></footer>
+      <footer id="page-footer" class="page-footer"></footer>
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../js/main.js"></script>
   <script>
     initPage({
@@ -109,6 +107,14 @@
       pageIcon   : 'fas fa-tools',
       basePath   : '../../'
     });
+
+    function copyText(text, btn) {
+      navigator.clipboard.writeText(text).then(function () {
+        var orig = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check me-1"></i> ¡Copiado!';
+        setTimeout(function () { btn.innerHTML = orig; }, 1800);
+      });
+    }
   </script>
 </body>
 </html>

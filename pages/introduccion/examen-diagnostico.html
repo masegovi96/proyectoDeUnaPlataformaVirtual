@@ -1,240 +1,145 @@
-<!DOCTYPE html>
-<html lang="es">
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Examen Diagnostico &mdash; PPV</title>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <title>Examen Diagnostico — PPV</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet" href="../../css/styles.css" />
 </head>
-
 <body>
   <div id="overlay"></div>
-  <nav id="sidebar" aria-label="Menu principal"></nav>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div id="content">
+      <header id="topbar" class="top-navbar"></header>
+      <main class="page-content">
 
-  <div id="content">
+        <div class="page-hero">
+          <i class="fas fa-stethoscope hero-icon"></i>
+          <h1><i class="fas fa-clipboard-check me-2"></i>Examen Diagnóstico</h1>
+        </div>
 
-    <header id="topbar" class="top-navbar"></header>
-
-    <main class="page-content">
-
-      <div class="page-hero">
-        <i class="fas fa-stethoscope hero-icon"></i>
-        <h1><i class="fas fa-clipboard-check me-2"></i>Examen Diagn&oacute;stico</h1>
-      </div>
-
-      <div class="row g-4">
-
-        <div class="col-12 col-lg-7">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fas fa-bullseye"></i> Objetivo
+        <div class="row g-4">
+          <div class="col-12 col-lg-7">
+            <div class="card h-100">
+              <div class="card-header"><i class="fas fa-bullseye"></i> Objetivo</div>
+              <div class="card-body">
+                <p class="mb-3 text-body-secondary">Evaluar el nivel del estudiante en:</p>
+                <ul class="topic-list list-unstyled mb-3">
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Pensamiento lógico aplicado a software</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Ingeniería de requisitos</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Modelado básico</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Conocimiento de metodologías</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Toma de decisiones técnicas</li>
+                </ul>
+              </div>
             </div>
-            <div class="card-body">
-              <p class="mb-3 text-body-secondary">Evaluar el nivel del estudiante en:</p>
-              <ul class="topic-list list-unstyled mb-3">
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Pensamiento l&oacute;gico aplicado a software</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Ingenier&iacute;a de requisitos</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Modelado b&aacute;sico</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Conocimiento de metodolog&iacute;as</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Toma de decisiones t&eacute;cnicas</li>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="card h-100">
+              <div class="card-header"><i class="fas fa-exclamation-triangle"></i> Importante</div>
+              <div class="card-body d-flex flex-column gap-3">
+                <div class="note-box"><i class="fas fa-times-circle"></i><span>Este examen <strong>no tiene valor</strong> en la calificación final</span></div>
+                <div class="note-box"><i class="fas fa-stethoscope"></i><span>Es únicamente <strong>diagnóstico</strong></span></div>
+                <div class="note-box"><i class="fas fa-robot"></i><span>Evita el uso de <strong>inteligencia artificial</strong></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card section-mt">
+          <div class="card-header"><i class="fas fa-briefcase"></i> Caso Práctico</div>
+          <div class="card-body">
+            <p class="text-body-secondary mb-3">Se te plantea el siguiente problema:</p>
+            <div class="note-box">
+              <i class="fas fa-quote-left"></i>
+              <span>
+                Una escuela desea un <strong>sistema web</strong> para gestionar asesorías entre alumnos y profesores.
+                Los alumnos podrán <strong>solicitar asesorías</strong> y los profesores podrán
+                <strong>aceptar o rechazar solicitudes</strong>.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title section-mt section-mb"><i class="fas fa-layer-group"></i> Actividad</h2>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <div class="diag-block">
+              <div class="diag-header"><span class="block-num">1</span><h5>Análisis de Requisitos</h5></div>
+              <ul class="topic-list list-unstyled mb-0">
+                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>Requisitos funcionales</strong> (mínimo 5)<br /><span class="text-body-secondary small">Ejemplo: El alumno puede registrarse</span></li>
+                <li class="mt-2"><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>Requisitos no funcionales</strong> (mínimo 3)<br /><span class="text-body-secondary small">Ejemplo: El sistema debe ser rápido</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="diag-block">
+              <div class="diag-header"><span class="block-num">2</span><h5>Modelado</h5></div>
+              <ul class="topic-list list-unstyled mb-0">
+                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>Diagrama de casos de uso</strong> (básico)<br /><span class="text-body-secondary small">Incluye al menos: Alumno, Profesor</span></li>
+                <li class="mt-2"><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>Flujo del proceso</strong><br /><span class="text-body-secondary small">¿Qué ocurre desde que el alumno solicita asesoría hasta que el profesor responde?</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="diag-block">
+              <div class="diag-header"><span class="block-num">3</span><h5>Metodología</h5></div>
+              <ul class="topic-list list-unstyled mb-0">
+                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>¿Qué metodología usarías?</strong><br /><span class="text-body-secondary small">Ejemplo: Scrum, Cascada. Explica por qué en este caso.</span></li>
+                <li class="mt-2"><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>Organización del trabajo</strong><br /><span class="text-body-secondary small">¿Trabajarías en equipo o individual? ¿Cómo dividirías el trabajo?</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="diag-block">
+              <div class="diag-header"><span class="block-num">4</span><h5>Diseño</h5></div>
+              <ul class="topic-list list-unstyled mb-0">
+                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>¿Qué componentes tendría el sistema?</strong><br /><span class="text-body-secondary small">Ejemplo: frontend, backend, base de datos</span></li>
+                <li class="mt-2"><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>¿Qué tecnología usarías?</strong></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="diag-block">
+              <div class="diag-header"><span class="block-num">5</span><h5>Pensamiento de Ingeniería</h5></div>
+              <ul class="topic-list list-unstyled mb-0">
+                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>¿Qué problemas podrían surgir?</strong><br /><span class="text-body-secondary small">Mínimo 3</span></li>
+                <li class="mt-2"><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>¿Cómo mejorarías el sistema en el futuro?</strong></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="diag-block">
+              <div class="diag-header"><span class="block-num">6</span><h5>Patrones de Diseño</h5></div>
+              <ul class="topic-list list-unstyled mb-0">
+                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i><strong>¿Aplicarías algún patrón de diseño?</strong><br /><span class="text-body-secondary small">Ejemplos: MVC, Singleton. Explica brevemente por qué.</span></li>
               </ul>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-lg-5">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fas fa-exclamation-triangle"></i> Importante
-            </div>
-            <div class="card-body d-flex flex-column gap-3">
-              <div class="note-box">
-                <i class="fas fa-times-circle"></i>
-                <span>Este examen <strong>no tiene valor</strong> en la calificaci&oacute;n final</span>
-              </div>
-              <div class="note-box">
-                <i class="fas fa-stethoscope"></i>
-                <span>Es &uacute;nicamente <strong>diagn&oacute;stico</strong></span>
-              </div>
-              <div class="note-box">
-                <i class="fas fa-robot"></i>
-                <span>Evita el uso de <strong>inteligencia artificial</strong></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <i class="fas fa-briefcase"></i> Caso Pr&aacute;ctico
-        </div>
-        <div class="card-body">
-          <p class="text-body-secondary mb-3">Se te plantea el siguiente problema:</p>
-          <div class="note-box">
-            <i class="fas fa-quote-left"></i>
-            <span>
-              Una escuela desea un <strong>sistema web</strong> para gestionar asesor&iacute;as entre alumnos y profesores.
-              Los alumnos podr&aacute;n <strong>solicitar asesor&iacute;as</strong> y los profesores podr&aacute;n
-              <strong>aceptar o rechazar solicitudes</strong>.
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <h2 class="section-title">
-        <i class="fas fa-layer-group"></i> Actividad
-      </h2>
-
-      <div class="row g-4">
-
-        <div class="col-12 col-md-6">
-          <div class="diag-block">
-            <div class="diag-header">
-              <span class="block-num">1</span>
-              <h5>An&aacute;lisis de Requisitos</h5>
-            </div>
+        <div class="card section-mt">
+          <div class="card-header"><i class="fas fa-upload"></i> Entrega</div>
+          <div class="card-body">
             <ul class="topic-list list-unstyled mb-0">
-              <li>
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>Requisitos funcionales</strong> (m&iacute;nimo 5)
-                <br /><span class="text-body-secondary small">Ejemplo: El alumno puede registrarse</span>
-              </li>
-              <li class="mt-2">
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>Requisitos no funcionales</strong> (m&iacute;nimo 3)
-                <br /><span class="text-body-secondary small">Ejemplo: El sistema debe ser r&aacute;pido</span>
-              </li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Documento PDF o escrito</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Puede incluir diagramas a mano o digitales</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Subirlo a GitHub</li>
             </ul>
           </div>
         </div>
 
-        <div class="col-12 col-md-6">
-          <div class="diag-block">
-            <div class="diag-header">
-              <span class="block-num">2</span>
-              <h5>Modelado</h5>
-            </div>
-            <ul class="topic-list list-unstyled mb-0">
-              <li>
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>Diagrama de casos de uso</strong> (b&aacute;sico)
-                <br /><span class="text-body-secondary small">Incluye al menos: Alumno, Profesor</span>
-              </li>
-              <li class="mt-2">
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>Flujo del proceso</strong>
-                <br /><span class="text-body-secondary small">&iquest;Qu&eacute; ocurre desde que el alumno solicita asesor&iacute;a hasta que el profesor responde?</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="diag-block">
-            <div class="diag-header">
-              <span class="block-num">3</span>
-              <h5>Metodolog&iacute;a</h5>
-            </div>
-            <ul class="topic-list list-unstyled mb-0">
-              <li>
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>&iquest;Qu&eacute; metodolog&iacute;a usar&iacute;as?</strong>
-                <br /><span class="text-body-secondary small">Ejemplo: Scrum, Cascada. Explica por qu&eacute; en este caso.</span>
-              </li>
-              <li class="mt-2">
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>Organizaci&oacute;n del trabajo</strong>
-                <br /><span class="text-body-secondary small">&iquest;Trabajar&iacute;as en equipo o individual? &iquest;C&oacute;mo dividir&iacute;as el trabajo?</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="diag-block">
-            <div class="diag-header">
-              <span class="block-num">4</span>
-              <h5>Dise&ntilde;o</h5>
-            </div>
-            <ul class="topic-list list-unstyled mb-0">
-              <li>
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>&iquest;Qu&eacute; componentes tendr&iacute;a el sistema?</strong>
-                <br /><span class="text-body-secondary small">Ejemplo: frontend, backend, base de datos</span>
-              </li>
-              <li class="mt-2">
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>&iquest;Qu&eacute; tecnolog&iacute;a usar&iacute;as?</strong>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="diag-block">
-            <div class="diag-header">
-              <span class="block-num">5</span>
-              <h5>Pensamiento de Ingenier&iacute;a</h5>
-            </div>
-            <ul class="topic-list list-unstyled mb-0">
-              <li>
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>&iquest;Qu&eacute; problemas podr&iacute;an surgir?</strong>
-                <br /><span class="text-body-secondary small">M&iacute;nimo 3</span>
-              </li>
-              <li class="mt-2">
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>&iquest;C&oacute;mo mejorar&iacute;as el sistema en el futuro?</strong>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="diag-block">
-            <div class="diag-header">
-              <span class="block-num">6</span>
-              <h5>Patrones de Dise&ntilde;o</h5>
-            </div>
-            <ul class="topic-list list-unstyled mb-0">
-              <li>
-                <i class="fas fa-circle fa-xs me-2 topic-dot"></i>
-                <strong>&iquest;Aplicar&iacute;as alg&uacute;n patr&oacute;n de dise&ntilde;o?</strong>
-                <br /><span class="text-body-secondary small">Ejemplos: MVC, Singleton. Explica brevemente por qu&eacute;.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <i class="fas fa-upload"></i> Entrega
-        </div>
-        <div class="card-body">
-          <ul class="topic-list list-unstyled mb-0">
-            <li><i class="fas fa-check-circle text-success me-2"></i>Documento PDF o escrito</li>
-            <li><i class="fas fa-check-circle text-success me-2"></i>Puede incluir diagramas a mano o digitales</li>
-            <li><i class="fas fa-check-circle text-success me-2"></i>Subirlo a GitHub</li>
-          </ul>
-        </div>
-      </div>
-
-    </main>
-
-    <footer id="page-footer" class="page-footer"></footer>
+      </main>
+      <footer id="page-footer" class="page-footer"></footer>
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../js/main.js"></script>
   <script>
     initPage({

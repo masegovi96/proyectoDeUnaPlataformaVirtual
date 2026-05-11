@@ -1,137 +1,176 @@
+﻿// main.js — PPV
+// Genera el sidebar, topbar y footer, y gestiona la interactividad (colapso, tema).
+// Compatible con la estructura .sidebar / .app-container del diseño glassmorphism.
+
 function getSidebarHTML(cfg) {
   var b      = cfg.basePath || '';
   var active = cfg.activePage;
   var introPages = ['herramientas', 'proyecto-final', 'examen-diagnostico'];
   var introOpen  = introPages.indexOf(active) !== -1;
+  var chevRot    = introOpen ? 'transform:rotate(-180deg);' : '';
 
-  function li(page, href, icon, label) {
-    return '<li class="' + (active === page ? 'active' : '') + '">' +
-      '<a href="' + b + href + '">' +
-      '<i class="' + icon + ' nav-icon"></i>' + label +
-      '</a></li>';
+  function navLink(page, href, icon, label) {
+    var isActive = active === page;
+    return '<a href="' + b + href + '" class="nav-link' + (isActive ? ' active' : '') + '">'
+      + '<i class="' + icon + '"></i>'
+      + '<span class="nav-label">' + label + '</span>'
+      + '</a>';
   }
 
-  return '' +
-    '<div class="sidebar-header">' +
-      '<a href="' + b + 'index.html" class="sidebar-brand">' +
-        '<i class="fas fa-laptop-code sidebar-brand-icon"></i>' +
-        '<span class="sidebar-brand-name">Proyecto de una Plataforma Virtual</span>' +
-      '</a>' +
-    '</div>' +
-    '<ul class="sidebar-nav">' +
-      li('home', 'index.html', 'fas fa-home', 'Inicio') +
-      '<li class="' + (introOpen ? 'active' : '') + '">' +
-        '<a href="#introSubmenu" data-bs-toggle="collapse" role="button"' +
-           ' aria-expanded="' + introOpen + '" aria-controls="introSubmenu">' +
-          '<i class="fas fa-book-open nav-icon"></i>' +
-          'Introducci&oacute;n' +
-          '<i class="fas fa-chevron-down chevron"></i>' +
-        '</a>' +
-        '<ul class="sidebar-submenu collapse ' + (introOpen ? 'show' : '') + '" id="introSubmenu">' +
-          '<li class="' + (active === 'herramientas' ? 'active' : '') + '">' +
-            '<a href="' + b + 'pages/introduccion/herramientas.html">' +
-              '<i class="fas fa-tools"></i> Herramientas de la clase' +
-            '</a>' +
-          '</li>' +
-          '<li class="' + (active === 'proyecto-final' ? 'active' : '') + '">' +
-            '<a href="' + b + 'pages/introduccion/proyecto-final.html">' +
-              '<i class="fas fa-layer-group"></i> Proyecto Final' +
-            '</a>' +
-          '</li>' +
-          '<li class="' + (active === 'examen-diagnostico' ? 'active' : '') + '">' +
-            '<a href="' + b + 'pages/introduccion/examen-diagnostico.html">' +
-              '<i class="fas fa-clipboard-check"></i> Examen Diagn&oacute;stico' +
-            '</a>' +
-          '</li>' +
-        '</ul>' +
-      '</li>' +
-    '</ul>';
+  return ''
+    + '<div class="sidebar-header">'
+    +   '<div class="sidebar-brand"><h2>Proyecto de una Plataforma Virtual</h2></div>'
+    + '</div>'
+    + '<nav class="sidebar-nav" id="sidebar-nav">'
+    +   '<ul>'
+    +     '<li class="nav-item">' + navLink('home', 'index.html', 'fas fa-home', 'Inicio') + '</li>'
+    +     '<li class="nav-item accordion-item">'
+    +       '<div class="nav-link accordion-toggle' + (introOpen ? ' active' : '') + '" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">'
+    +         '<div style="display:flex;align-items:center;">'
+    +           '<i class="fas fa-book-open"></i>'
+    +           '<span class="nav-label">Introducción</span>'
+    +         '</div>'
+    +         '<i class="fas fa-chevron-down accordion-icon nav-label" style="transition:transform 0.3s ease;' + chevRot + '"></i>'
+    +       '</div>'
+    +       '<ul class="submenu" style="display:' + (introOpen ? 'block' : 'none') + ';padding-left:1.5rem;list-style:none;margin:0.5rem 0;">'
+    +         '<li class="nav-item" style="margin-bottom:0.5rem;">' + navLink('herramientas', 'pages/introduccion/herramientas.html', 'fas fa-toolbox', 'Herramientas') + '</li>'
+    +         '<li class="nav-item" style="margin-bottom:0.5rem;">' + navLink('proyecto-final', 'pages/introduccion/proyecto-final.html', 'fas fa-rocket', 'Proyecto Final') + '</li>'
+    +         '<li class="nav-item">' + navLink('examen-diagnostico', 'pages/introduccion/examen-diagnostico.html', 'fas fa-clipboard-check', 'Diagnóstico') + '</li>'
+    +       '</ul>'
+    +     '</li>'
+    +   '</ul>'
+    + '</nav>'
+    + '<div class="sidebar-bottom">'
+    +   '<button class="theme-toggle-btn" id="theme-toggle-btn" title="Cambiar tema">'
+    +     '<i class="fa-solid fa-sun" id="theme-icon"></i>'
+    +     '<span class="nav-label" id="theme-label">Modo claro</span>'
+    +   '</button>'
+    + '</div>';
 }
 
 function getHeaderHTML(cfg) {
-  return '' +
-    '<button id="sidebarToggle" aria-label="Abrir o cerrar men&uacute;">' +
-      '<i class="fas fa-bars"></i>' +
-    '</button>' +
-    '<span class="page-title">' +
-      '<i class="' + cfg.pageIcon + ' nav-icon navbar-page-icon"></i>' +
-      cfg.pageTitle +
-    '</span>' +
-    '<div class="navbar-right">' +
-      '<button id="darkModeToggle" class="btn-dark-toggle" aria-label="Cambiar tema" title="Modo oscuro / claro">' +
-        '<i class="fas fa-moon" id="darkModeIcon"></i>' +
-      '</button>' +
-    '</div>';
+  return ''
+    + '<button id="sidebarToggle" aria-label="Abrir o cerrar menú"><i class="fas fa-bars"></i></button>'
+    + '<span class="page-title">'
+    +   '<i class="' + (cfg.pageIcon || '') + ' navbar-page-icon"></i>' + (cfg.pageTitle || '')
+    + '</span>'
+    + '<div class="navbar-right">'
+    +   '<button id="darkModeToggle" class="btn-dark-toggle" aria-label="Cambiar tema">'
+    +     '<i class="fas fa-moon" id="darkModeIcon"></i>'
+    +   '</button>'
+    + '</div>';
 }
 
-function getFooterHTML() {
-  return 'Proyecto de una Plataforma Virtual &copy; 2025';
-}
-
-function initDarkMode() {
-  var STORAGE_KEY = 'ppv-theme';
+function initTheme() {
+  var KEY = 'ppv-theme';
   var html = document.documentElement;
 
   function applyTheme(dark) {
-    html.setAttribute('data-bs-theme', dark ? 'dark' : 'light');
-    var icon = document.getElementById('darkModeIcon');
-    if (icon) icon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+    html.setAttribute('data-theme', dark ? 'dark' : 'light');
+    var sidebarIcon = document.getElementById('theme-icon');
+    var sidebarLabel = document.getElementById('theme-label');
+    var navbarIcon = document.getElementById('darkModeIcon');
+    if (sidebarIcon)  sidebarIcon.className  = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    if (sidebarLabel) sidebarLabel.textContent = dark ? 'Modo claro' : 'Modo oscuro';
+    if (navbarIcon)   navbarIcon.className   = dark ? 'fas fa-sun' : 'fas fa-moon';
+    try { localStorage.setItem(KEY, dark ? 'dark' : 'light'); } catch(e) {}
   }
 
-  var saved       = localStorage.getItem(STORAGE_KEY);
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch(e) {}
   var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(saved ? saved === 'dark' : prefersDark);
+  var dark = saved ? saved === 'dark' : prefersDark;
+  applyTheme(dark);
 
-  var btn = document.getElementById('darkModeToggle');
-  if (btn) {
-    btn.addEventListener('click', function () {
-      var nowDark = html.getAttribute('data-bs-theme') === 'dark';
-      applyTheme(!nowDark);
-      localStorage.setItem(STORAGE_KEY, !nowDark ? 'dark' : 'light');
-    });
-  }
+  // Sidebar theme button
+  document.addEventListener('click', function(e) {
+    if (e.target.closest && e.target.closest('#theme-toggle-btn')) {
+      applyTheme(html.getAttribute('data-theme') !== 'dark');
+    }
+    if (e.target.closest && e.target.closest('#darkModeToggle')) {
+      applyTheme(html.getAttribute('data-theme') !== 'dark');
+    }
+  });
 }
 
-function initSidebarToggle() {
-  var sidebar   = document.getElementById('sidebar');
-  var content   = document.getElementById('content');
-  var overlay   = document.getElementById('overlay');
-  var toggleBtn = document.getElementById('sidebarToggle');
+function initSidebar() {
+  var sidebar    = document.getElementById('sidebar');
+  var content    = document.getElementById('content');
+  var overlay    = document.getElementById('overlay');
+  var topToggle  = document.getElementById('sidebarToggle');
+  var mainContent = document.querySelector('.main-content');
 
-  if (!sidebar || !toggleBtn) return;
+  if (!sidebar) return;
 
-  function isMobile() { return window.innerWidth < 992; }
+  function isMobile() { return window.innerWidth <= 768; }
 
-  toggleBtn.addEventListener('click', function () {
+  function setSidebarOpen(open) {
+
     if (isMobile()) {
-      sidebar.classList.toggle('show');
-      overlay.classList.toggle('show');
+      sidebar.classList.toggle('open', open);
+      if (overlay) overlay.classList.toggle('show', open);
     } else {
-      sidebar.classList.toggle('collapsed');
-      content.classList.toggle('expanded');
+      if (open) {
+        document.body.classList.remove('sidebar-collapsed');
+        sidebar.classList.remove('collapsed');
+        if (content) content.classList.remove('expanded');
+        if (mainContent) {
+          mainContent.style.marginLeft = 'var(--sidebar-width)';
+          mainContent.style.maxWidth   = 'calc(100vw - var(--sidebar-width))';
+          mainContent.style.paddingLeft = '';
+        }
+      } else {
+        document.body.classList.add('sidebar-collapsed');
+        sidebar.classList.add('collapsed');
+        if (content) content.classList.add('expanded');
+        if (mainContent) {
+          mainContent.style.marginLeft  = '0';
+          mainContent.style.maxWidth    = '100vw';
+          mainContent.style.paddingLeft = '5rem';
+        }
+      }
+    }
+
+    try { localStorage.setItem('ppv-sidebar', open ? '1' : '0'); } catch(e) {}
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem('ppv-sidebar'); } catch(e) {}
+  setSidebarOpen(saved !== null ? saved === '1' : !isMobile());
+
+  function toggle() {
+    var open = isMobile() ? sidebar.classList.contains('open') : !document.body.classList.contains('sidebar-collapsed');
+    setSidebarOpen(!open);
+  }
+
+  if (topToggle)  topToggle.addEventListener('click', toggle);
+  if (overlay)    overlay.addEventListener('click', function() { setSidebarOpen(false); });
+
+  document.addEventListener('click', function(e) {
+    if (isMobile() && sidebar.classList.contains('open')) {
+      if (!sidebar.contains(e.target) && (!topToggle || !topToggle.contains(e.target))) {
+        setSidebarOpen(false);
+      }
     }
   });
 
-  overlay.addEventListener('click', function () {
-    sidebar.classList.remove('show');
-    overlay.classList.remove('show');
-  });
-
-  var lastMobile = isMobile();
-  window.addEventListener('resize', function () {
-    var mobile = isMobile();
-    if (mobile === lastMobile) return;
-    sidebar.classList.remove('show', 'collapsed');
-    overlay.classList.remove('show');
-    content.classList.remove('expanded');
-    lastMobile = mobile;
+  window.addEventListener('resize', function() {
+    if (!isMobile() && overlay) overlay.classList.remove('show');
   });
 }
 
-function initCollapse() {
-  if (typeof bootstrap === 'undefined') return;
-  var el = document.getElementById('introSubmenu');
-  if (el) bootstrap.Collapse.getOrCreateInstance(el, { toggle: false });
+function initAccordion() {
+  var toggle  = document.querySelector('.accordion-toggle');
+  var submenu = document.querySelector('.submenu');
+  if (!toggle || !submenu) return;
+
+  toggle.addEventListener('click', function() {
+    var icon   = toggle.querySelector('.accordion-icon');
+    var isOpen = submenu.style.display === 'block';
+    submenu.style.display = isOpen ? 'none' : 'block';
+    if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(-180deg)';
+    toggle.classList.toggle('active', !isOpen);
+  });
 }
 
 function initPage(cfg) {
@@ -141,35 +180,29 @@ function initPage(cfg) {
 
   if (sidebarEl) sidebarEl.innerHTML = getSidebarHTML(cfg);
   if (topbarEl)  topbarEl.innerHTML  = getHeaderHTML(cfg);
-  if (footerEl)  footerEl.innerHTML  = getFooterHTML();
+  if (footerEl)  footerEl.innerHTML  = '&copy; 2026 Proyecto de una Plataforma Virtual. Todos los derechos reservados.';
 
-  initSidebarToggle();
-  initDarkMode();
-  initCollapse();
-}
+  initTheme();
+  initSidebar();
+  initAccordion();
 
-function copyText(text, btn) {
-  var original = btn.innerHTML;
+  // Fade-in animations
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-  function done() {
-    btn.innerHTML = '<i class="fas fa-check"></i> Copiado';
-    setTimeout(function () { btn.innerHTML = original; }, 1800);
-  }
-
-  function fallback() {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0;';
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); } catch (e) {}
-    document.body.removeChild(ta);
-  }
-
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(done).catch(function () { fallback(); done(); });
-  } else {
-    fallback();
-    done();
+    document.querySelectorAll('.card, .phase-card, .diag-block, .eval-table tr').forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity 0.45s ease ' + (i * 0.06) + 's, transform 0.45s ease ' + (i * 0.06) + 's';
+      observer.observe(el);
+    });
   }
 }

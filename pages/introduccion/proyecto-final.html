@@ -1,372 +1,241 @@
-<!DOCTYPE html>
-<html lang="es">
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyecto Final &mdash; PPV</title>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <title>Proyecto Final — PPV</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet" href="../../css/styles.css" />
 </head>
-
 <body>
   <div id="overlay"></div>
-  <nav id="sidebar" aria-label="Menu principal"></nav>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div id="content">
+      <header id="topbar" class="top-navbar"></header>
+      <main class="page-content">
 
-  <div id="content">
+        <div class="page-hero">
+          <i class="fas fa-project-diagram hero-icon"></i>
+          <h1><i class="fas fa-layer-group me-2"></i>Proyecto Final</h1>
+          <p class="subtitle">Desarrollo de un sistema de software funcional con cliente real durante el cuatrimestre</p>
+        </div>
 
-    <header id="topbar" class="top-navbar"></header>
-
-    <main class="page-content">
-
-      <div class="page-hero">
-        <i class="fas fa-project-diagram hero-icon"></i>
-        <h1><i class="fas fa-layer-group me-2"></i>Proyecto Final</h1>
-        <p class="subtitle">Desarrollo de un sistema de software funcional con cliente real durante el cuatrimestre</p>
-      </div>
-
-      <!-- Objetivo -->
-      <div class="row g-4 mb-4">
-        <div class="col-12 col-lg-6">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fas fa-bullseye"></i> Objetivo
-            </div>
-            <div class="card-body">
-              <p class="text-body-secondary mb-3">
-                Desarrollar un <strong>sistema de software funcional</strong>, trabajando con un cliente real,
-                aplicando principios de ingenier&iacute;a de software, gesti&oacute;n de proyectos e
-                ingenier&iacute;a de requisitos.
-              </p>
+        <div class="row g-4 mb-4">
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
+              <div class="card-header"><i class="fas fa-bullseye"></i> Objetivo</div>
+              <div class="card-body">
+                <p class="text-body-secondary mb-3">
+                  Desarrollar un <strong>sistema de software funcional</strong>, trabajando con un cliente real,
+                  aplicando principios de ingeniería de software, gestión de proyectos e ingeniería de requisitos.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-lg-6">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fas fa-users"></i> Modalidad de trabajo
-            </div>
-            <div class="card-body">
-              <ul class="deliverable-list list-unstyled mb-0">
-                <li><i class="fas fa-user-friends me-2" style="color:var(--heading-accent)"></i>Equipos de <strong>4 integrantes</strong></li>
-                <li><i class="fas fa-handshake me-2" style="color:var(--heading-accent)"></i>Cada equipo trabaja con un <strong>cliente real</strong></li>
-                <li><i class="fas fa-calendar-alt me-2" style="color:var(--heading-accent)"></i>Desarrollo <strong>progresivo</strong> durante el cuatrimestre</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Descripción + Alcance -->
-      <div class="row g-4 mb-4">
-        <div class="col-12 col-lg-6">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fas fa-align-left"></i> Descripci&oacute;n general
-            </div>
-            <div class="card-body">
-              <p class="text-body-secondary small mb-3">Cada equipo deber&aacute;:</p>
-              <ul class="topic-list list-unstyled mb-0">
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Identificar una problem&aacute;tica real</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Trabajar directamente con un cliente</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Levantar y validar requerimientos</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Dise&ntilde;ar una soluci&oacute;n tecnol&oacute;gica</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Desarrollar un sistema funcional</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Documentar todo el proceso</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-6">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fas fa-cubes"></i> Alcance del sistema
-            </div>
-            <div class="card-body">
-              <p class="text-body-secondary small mb-3">El proyecto deber&aacute; ser un sistema <strong>completo y funcional</strong>:</p>
-              <ul class="topic-list list-unstyled mb-2">
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Interfaz de usuario <span class="text-body-secondary">(frontend)</span></li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>L&oacute;gica del sistema <span class="text-body-secondary">(backend)</span></li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Base de datos <strong>(obligatorio)</strong></li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Flujo funcional completo</li>
-              </ul>
-              <div class="note-box">
-                <i class="fas fa-map-pin"></i>
-                <span>El sistema debe resolver un problema <strong>real</strong> planteado por el cliente</span>
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
+              <div class="card-header"><i class="fas fa-users"></i> Modalidad de trabajo</div>
+              <div class="card-body">
+                <ul class="deliverable-list list-unstyled mb-0">
+                  <li><i class="fas fa-user-friends me-2 text-primary"></i>Equipos de <strong>4 integrantes</strong></li>
+                  <li><i class="fas fa-handshake me-2 text-primary"></i>Cada equipo trabaja con un <strong>cliente real</strong></li>
+                  <li><i class="fas fa-calendar-alt me-2 text-primary"></i>Desarrollo <strong>progresivo</strong> durante el cuatrimestre</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tecnologías -->
-      <div class="card mb-4">
-        <div class="card-header">
-          <i class="fas fa-brain"></i> Toma de decisiones tecnol&oacute;gicas
-        </div>
-        <div class="card-body">
-          <p class="text-body-secondary mb-3">Cada equipo deber&aacute; seleccionar y justificar las tecnolog&iacute;as que utilizar&aacute;, adapt&aacute;ndolas a las necesidades del proyecto.</p>
-          <div class="d-flex flex-column gap-2">
-            <div class="note-box">
-              <i class="fas fa-check-circle"></i>
-              <span>No se impondr&aacute;n tecnolog&iacute;as espec&iacute;ficas</span>
+        <div class="row g-4 mb-4">
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
+              <div class="card-header"><i class="fas fa-align-left"></i> Descripción general</div>
+              <div class="card-body">
+                <p class="text-body-secondary small mb-3">Cada equipo deberá:</p>
+                <ul class="topic-list list-unstyled mb-0">
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Identificar una problemática real</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Trabajar directamente con un cliente</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Levantar y validar requerimientos</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Diseñar una solución tecnológica</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Desarrollar un sistema funcional</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Documentar todo el proceso</li>
+                </ul>
+              </div>
             </div>
-            <div class="note-box">
-              <i class="fas fa-check-circle"></i>
-              <span>Se evaluar&aacute; la <strong>coherencia</strong> entre la soluci&oacute;n y el problema</span>
-            </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Proceso de desarrollo -->
-      <h2 class="section-title">
-        <i class="fas fa-cogs"></i> Proceso de desarrollo
-      </h2>
-
-      <div class="d-flex flex-column gap-3 mb-4">
-
-        <div class="phase-card">
-          <span class="phase-num">1</span>
-          <div class="phase-body">
-            <h5>Ingenier&iacute;a de requisitos</h5>
-            <p>Levantamiento con el cliente, definici&oacute;n de requisitos funcionales y no funcionales, y validaci&oacute;n continua.</p>
-          </div>
-        </div>
-
-        <div class="phase-card">
-          <span class="phase-num">2</span>
-          <div class="phase-body">
-            <h5>Dise&ntilde;o del sistema</h5>
-            <p>Arquitectura general, modelado de datos, diagramas, prototipos e interfaces.</p>
-          </div>
-        </div>
-
-        <div class="phase-card">
-          <span class="phase-num">3</span>
-          <div class="phase-body">
-            <h5>Desarrollo</h5>
-            <p>Implementaci&oacute;n del sistema, integraci&oacute;n frontend + backend y conexi&oacute;n con base de datos.</p>
-          </div>
-        </div>
-
-        <div class="phase-card">
-          <span class="phase-num">4</span>
-          <div class="phase-body">
-            <h5>Pruebas</h5>
-            <p>Validaci&oacute;n de funcionalidades y correcci&oacute;n de errores.</p>
-          </div>
-        </div>
-
-        <div class="phase-card">
-          <span class="phase-num">5</span>
-          <div class="phase-body">
-            <h5>Gesti&oacute;n del proyecto</h5>
-            <p>Organizaci&oacute;n del equipo, planeaci&oacute;n del trabajo y seguimiento de avances.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Roles + Seguimiento -->
-      <div class="row g-4 mb-4">
-        <div class="col-12 col-lg-5">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fas fa-id-badge"></i> Roles del equipo
-            </div>
-            <div class="card-body">
-              <ul class="deliverable-list list-unstyled mb-2">
-                <li><i class="fas fa-star me-2" style="color:var(--accent)"></i>L&iacute;der de proyecto</li>
-                <li><i class="fas fa-desktop me-2" style="color:var(--heading-accent)"></i>Desarrollador frontend</li>
-                <li><i class="fas fa-server me-2" style="color:var(--heading-accent)"></i>Desarrollador backend</li>
-                <li><i class="fas fa-database me-2" style="color:var(--heading-accent)"></i>Responsable de BD / QA / documentaci&oacute;n</li>
-              </ul>
-              <div class="note-box">
-                <i class="fas fa-users"></i>
-                <span>Todos los integrantes deben participar <strong>activamente</strong></span>
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
+              <div class="card-header"><i class="fas fa-cubes"></i> Alcance del sistema</div>
+              <div class="card-body">
+                <p class="text-body-secondary small mb-3">El proyecto deberá ser un sistema <strong>completo y funcional</strong>:</p>
+                <ul class="topic-list list-unstyled mb-2">
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Interfaz de usuario <span class="text-body-secondary">(frontend)</span></li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Lógica del sistema <span class="text-body-secondary">(backend)</span></li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Base de datos <strong>(obligatorio)</strong></li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Flujo funcional completo</li>
+                </ul>
+                <div class="note-box">
+                  <i class="fas fa-map-pin"></i>
+                  <span>El sistema debe resolver un problema <strong>real</strong> planteado por el cliente</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-7">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fas fa-sync-alt"></i> Seguimiento y revisiones
-            </div>
-            <div class="card-body">
-              <p class="text-body-secondary small mb-3">Se realizar&aacute;n revisiones peri&oacute;dicas con el docente. Cada equipo deber&aacute; presentar <strong>avances funcionales</strong>.</p>
-              <p class="text-body-secondary small mb-1">Se evaluar&aacute;:</p>
-              <ul class="topic-list list-unstyled mb-0">
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Progreso real</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Organizaci&oacute;n</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Cumplimiento de objetivos</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Documentación -->
-      <div class="card mb-4">
-        <div class="card-header">
-          <i class="fas fa-file-alt"></i> Documentaci&oacute;n
-        </div>
-        <div class="card-body">
-          <ul class="deliverable-list list-unstyled mb-2">
-            <li><i class="fas fa-check-circle text-success me-2"></i>Descripci&oacute;n del problema</li>
-            <li><i class="fas fa-check-circle text-success me-2"></i>Requisitos</li>
-            <li><i class="fas fa-check-circle text-success me-2"></i>Dise&ntilde;o del sistema</li>
-            <li><i class="fas fa-check-circle text-success me-2"></i>Modelo de base de datos</li>
-            <li><i class="fas fa-check-circle text-success me-2"></i>Evidencia del desarrollo</li>
-            <li><i class="fas fa-check-circle text-success me-2"></i>Manual b&aacute;sico de uso</li>
-          </ul>
-          <div class="note-box">
-            <i class="fas fa-info-circle"></i>
-            <span>El formato ser&aacute; indicado durante el curso</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Presentación final -->
-      <h2 class="section-title">
-        <i class="fas fa-microphone-alt"></i> Presentaci&oacute;n final
-      </h2>
-
-      <div class="row g-4 mb-4">
-
-        <div class="col-12 col-md-4">
-          <div class="card h-100 text-center">
-            <div class="card-body d-flex flex-column align-items-center justify-content-center gap-2 py-4">
-              <i class="fas fa-calendar-check fa-2x mb-1" style="color:var(--heading-accent)"></i>
-              <span class="text-body-secondary small">Fecha</span>
-              <strong style="font-size:1.2rem">14 de agosto</strong>
-              <span class="badge-pct high">Presencial</span>
+        <div class="card mb-4">
+          <div class="card-header"><i class="fas fa-brain"></i> Toma de decisiones tecnológicas</div>
+          <div class="card-body">
+            <p class="text-body-secondary mb-3">Cada equipo deberá seleccionar y justificar las tecnologías que utilizará, adaptándolas a las necesidades del proyecto.</p>
+            <div class="d-flex flex-column gap-2">
+              <div class="note-box"><i class="fas fa-check-circle"></i><span>No se impondrán tecnologías específicas</span></div>
+              <div class="note-box"><i class="fas fa-check-circle"></i><span>Se evaluará la <strong>coherencia</strong> entre la solución y el problema</span></div>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-md-4">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fas fa-list-check"></i> Caracter&iacute;sticas
+        <h2 class="section-title section-mb"><i class="fas fa-cogs"></i> Proceso de desarrollo</h2>
+
+        <div class="d-flex flex-column gap-2 mb-4">
+          <div class="phase-card"><span class="phase-num">1</span><div class="phase-body"><h5>Ingeniería de requisitos</h5><p>Levantamiento con el cliente, definición de requisitos funcionales y no funcionales, y validación continua.</p></div></div>
+          <div class="phase-card"><span class="phase-num">2</span><div class="phase-body"><h5>Diseño del sistema</h5><p>Arquitectura general, modelado de datos, diagramas, prototipos e interfaces.</p></div></div>
+          <div class="phase-card"><span class="phase-num">3</span><div class="phase-body"><h5>Desarrollo</h5><p>Implementación del sistema, integración frontend + backend y conexión con base de datos.</p></div></div>
+          <div class="phase-card"><span class="phase-num">4</span><div class="phase-body"><h5>Pruebas</h5><p>Validación de funcionalidades y corrección de errores.</p></div></div>
+          <div class="phase-card"><span class="phase-num">5</span><div class="phase-body"><h5>Gestión del proyecto</h5><p>Organización del equipo, planeación del trabajo y seguimiento de avances.</p></div></div>
+        </div>
+
+        <div class="row g-4 mb-4">
+          <div class="col-12 col-lg-5">
+            <div class="card h-100">
+              <div class="card-header"><i class="fas fa-id-badge"></i> Roles del equipo</div>
+              <div class="card-body">
+                <ul class="deliverable-list list-unstyled mb-2">
+                  <li><i class="fas fa-star me-2" style="color:var(--accent-primary)"></i>Líder de proyecto</li>
+                  <li><i class="fas fa-desktop me-2 text-primary"></i>Desarrollador frontend</li>
+                  <li><i class="fas fa-server me-2 text-primary"></i>Desarrollador backend</li>
+                  <li><i class="fas fa-database me-2 text-primary"></i>Responsable de BD / QA / documentación</li>
+                </ul>
+                <div class="note-box"><i class="fas fa-users"></i><span>Todos los integrantes deben participar <strong>activamente</strong></span></div>
+              </div>
             </div>
-            <div class="card-body">
-              <ul class="topic-list list-unstyled mb-0">
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Presentaci&oacute;n por equipo</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Demostraci&oacute;n del sistema en funcionamiento</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Explicaci&oacute;n del proceso</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Justificaci&oacute;n de decisiones t&eacute;cnicas</li>
-              </ul>
+          </div>
+          <div class="col-12 col-lg-7">
+            <div class="card h-100">
+              <div class="card-header"><i class="fas fa-sync-alt"></i> Seguimiento y revisiones</div>
+              <div class="card-body">
+                <p class="text-body-secondary small mb-3">Se realizarán revisiones periódicas con el docente. Cada equipo deberá presentar <strong>avances funcionales</strong>.</p>
+                <p class="text-body-secondary small mb-1">Se evaluará:</p>
+                <ul class="topic-list list-unstyled mb-0">
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Progreso real</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Organización</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Cumplimiento de objetivos</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-md-4">
-          <div class="card h-100">
-            <div class="card-header">
-              <i class="fas fa-people-group"></i> P&uacute;blico
+        <div class="card mb-4">
+          <div class="card-header"><i class="fas fa-file-alt"></i> Documentación</div>
+          <div class="card-body">
+            <ul class="deliverable-list list-unstyled mb-2">
+              <li><i class="fas fa-check-circle text-success me-2"></i>Descripción del problema</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Requisitos</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Diseño del sistema</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Modelo de base de datos</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Evidencia del desarrollo</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Manual básico de uso</li>
+            </ul>
+            <div class="note-box"><i class="fas fa-info-circle"></i><span>El formato será indicado durante el curso</span></div>
+          </div>
+        </div>
+
+        <h2 class="section-title section-mb"><i class="fas fa-microphone-alt"></i> Presentación final</h2>
+
+        <div class="row g-4 mb-4">
+          <div class="col-12 col-md-4">
+            <div class="card h-100 text-center">
+              <div class="card-body d-flex flex-column align-items-center justify-content-center gap-2 py-4">
+                <i class="fas fa-calendar-check fa-2x mb-1 text-primary"></i>
+                <span class="text-body-secondary small">Fecha</span>
+                <strong style="font-size:1.2rem">14 de agosto</strong>
+                <span class="badge-pct high">Presencial</span>
+              </div>
             </div>
-            <div class="card-body">
-              <ul class="topic-list list-unstyled mb-2">
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Personas invitadas</li>
-                <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Simulaci&oacute;n de entorno profesional real</li>
-              </ul>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card h-100">
+              <div class="card-header"><i class="fas fa-list-check"></i> Características</div>
+              <div class="card-body">
+                <ul class="topic-list list-unstyled mb-0">
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Presentación por equipo</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Demostración del sistema en funcionamiento</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Explicación del proceso</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Justificación de decisiones técnicas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card h-100">
+              <div class="card-header"><i class="fas fa-people-group"></i> Público</div>
+              <div class="card-body">
+                <ul class="topic-list list-unstyled mb-0">
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Personas invitadas</li>
+                  <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Simulación de entorno profesional real</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
 
-      </div>
-
-      <div class="card mb-4">
-        <div class="card-header">
-          <i class="fas fa-brain"></i> Durante la presentaci&oacute;n
-        </div>
-        <div class="card-body">
-          <p class="text-body-secondary small mb-3">El equipo deber&aacute;:</p>
-          <ul class="topic-list list-unstyled mb-0">
-            <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Explicar el problema</li>
-            <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Presentar la soluci&oacute;n</li>
-            <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Mostrar el sistema funcionando <strong>(obligatorio)</strong></li>
-            <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Explicar tecnolog&iacute;as utilizadas</li>
-            <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Justificar decisiones</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Rúbrica -->
-      <h2 class="section-title">
-        <i class="fas fa-chart-bar"></i> R&uacute;brica de evaluaci&oacute;n
-      </h2>
-
-      <div class="card mb-4">
-        <div class="card-body p-0">
-          <div class="table-wrapper">
-            <table class="eval-table">
-              <thead>
-                <tr>
-                  <th>Criterio</th>
-                  <th>Descripci&oacute;n</th>
-                  <th style="text-align:center">%</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="criterion-name"><i class="fas fa-puzzle-piece me-2" style="color:var(--heading-accent)"></i>Funcionalidad</td>
-                  <td>El sistema funciona correctamente y resuelve el problema planteado</td>
-                  <td style="text-align:center"><span class="badge-pct high">25%</span></td>
-                </tr>
-                <tr>
-                  <td class="criterion-name"><i class="fas fa-database me-2" style="color:var(--heading-accent)"></i>Base de datos</td>
-                  <td>Dise&ntilde;o adecuado, relaciones correctas y uso funcional</td>
-                  <td style="text-align:center"><span class="badge-pct">15%</span></td>
-                </tr>
-                <tr>
-                  <td class="criterion-name"><i class="fas fa-code me-2" style="color:var(--heading-accent)"></i>Desarrollo t&eacute;cnico</td>
-                  <td>Integraci&oacute;n frontend-backend, l&oacute;gica y estructura del c&oacute;digo</td>
-                  <td style="text-align:center"><span class="badge-pct">15%</span></td>
-                </tr>
-                <tr>
-                  <td class="criterion-name"><i class="fas fa-drafting-compass me-2" style="color:var(--heading-accent)"></i>Ing. de software</td>
-                  <td>Requerimientos claros, dise&ntilde;o y uso de diagramas</td>
-                  <td style="text-align:center"><span class="badge-pct">10%</span></td>
-                </tr>
-                <tr>
-                  <td class="criterion-name"><i class="fas fa-file-alt me-2" style="color:var(--heading-accent)"></i>Documentaci&oacute;n</td>
-                  <td>Completa, clara y bien estructurada</td>
-                  <td style="text-align:center"><span class="badge-pct">10%</span></td>
-                </tr>
-                <tr>
-                  <td class="criterion-name"><i class="fas fa-users me-2" style="color:var(--heading-accent)"></i>Trabajo en equipo</td>
-                  <td>Organizaci&oacute;n, roles y participaci&oacute;n</td>
-                  <td style="text-align:center"><span class="badge-pct">10%</span></td>
-                </tr>
-                <tr>
-                  <td class="criterion-name"><i class="fas fa-microphone me-2" style="color:var(--heading-accent)"></i>Presentaci&oacute;n</td>
-                  <td>Claridad, dominio y demostraci&oacute;n funcional</td>
-                  <td style="text-align:center"><span class="badge-pct">10%</span></td>
-                </tr>
-                <tr>
-                  <td class="criterion-name"><i class="fas fa-lightbulb me-2" style="color:var(--heading-accent)"></i>Toma de decisiones</td>
-                  <td>Justificaci&oacute;n de tecnolog&iacute;as y soluciones</td>
-                  <td style="text-align:center"><span class="badge-pct">5%</span></td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="card mb-4">
+          <div class="card-header"><i class="fas fa-brain"></i> Durante la presentación</div>
+          <div class="card-body">
+            <p class="text-body-secondary small mb-3">El equipo deberá:</p>
+            <ul class="topic-list list-unstyled mb-0">
+              <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Explicar el problema</li>
+              <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Presentar la solución</li>
+              <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Mostrar el sistema funcionando <strong>(obligatorio)</strong></li>
+              <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Explicar tecnologías utilizadas</li>
+              <li><i class="fas fa-circle fa-xs me-2 topic-dot"></i>Justificar decisiones</li>
+            </ul>
           </div>
         </div>
-      </div>
 
-    </main>
+        <h2 class="section-title section-mb"><i class="fas fa-chart-bar"></i> Rúbrica de evaluación</h2>
 
-    <footer id="page-footer" class="page-footer"></footer>
+        <div class="card mb-4">
+          <div class="card-body p-0">
+            <div class="table-container" style="border:none;border-radius:0;box-shadow:none;padding:0;">
+              <table class="eval-table">
+                <thead>
+                  <tr><th>Criterio</th><th>Descripción</th><th style="text-align:center">%</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="criterion-name"><i class="fas fa-puzzle-piece me-2 text-primary"></i>Funcionalidad</td><td>El sistema funciona correctamente y resuelve el problema planteado</td><td style="text-align:center"><span class="badge-pct high">25%</span></td></tr>
+                  <tr><td class="criterion-name"><i class="fas fa-database me-2 text-primary"></i>Base de datos</td><td>Diseño adecuado, relaciones correctas y uso funcional</td><td style="text-align:center"><span class="badge-pct">15%</span></td></tr>
+                  <tr><td class="criterion-name"><i class="fas fa-code me-2 text-primary"></i>Desarrollo técnico</td><td>Integración frontend-backend, lógica y estructura del código</td><td style="text-align:center"><span class="badge-pct">15%</span></td></tr>
+                  <tr><td class="criterion-name"><i class="fas fa-drafting-compass me-2 text-primary"></i>Ing. de software</td><td>Requerimientos claros, diseño y uso de diagramas</td><td style="text-align:center"><span class="badge-pct">10%</span></td></tr>
+                  <tr><td class="criterion-name"><i class="fas fa-file-alt me-2 text-primary"></i>Documentación</td><td>Completa, clara y bien estructurada</td><td style="text-align:center"><span class="badge-pct">10%</span></td></tr>
+                  <tr><td class="criterion-name"><i class="fas fa-users me-2 text-primary"></i>Trabajo en equipo</td><td>Organización, roles y participación</td><td style="text-align:center"><span class="badge-pct">10%</span></td></tr>
+                  <tr><td class="criterion-name"><i class="fas fa-microphone me-2 text-primary"></i>Presentación</td><td>Claridad, dominio y demostración funcional</td><td style="text-align:center"><span class="badge-pct">10%</span></td></tr>
+                  <tr><td class="criterion-name"><i class="fas fa-lightbulb me-2 text-primary"></i>Toma de decisiones</td><td>Justificación de tecnologías y soluciones</td><td style="text-align:center"><span class="badge-pct">5%</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </main>
+      <footer id="page-footer" class="page-footer"></footer>
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../js/main.js"></script>
   <script>
     initPage({
