@@ -5,9 +5,12 @@
 function getSidebarHTML(cfg) {
   var b      = cfg.basePath || '';
   var active = cfg.activePage;
-  var introPages = ['herramientas', 'proyecto-final', 'examen-diagnostico'];
-  var introOpen  = introPages.indexOf(active) !== -1;
-  var chevRot    = introOpen ? 'transform:rotate(-180deg);' : '';
+  var introPages   = ['herramientas', 'proyecto-final', 'examen-diagnostico'];
+  var introOpen    = introPages.indexOf(active) !== -1;
+  var chevRot      = introOpen ? 'transform:rotate(-180deg);' : '';
+  var unidad1Pages = ['presentacion', 'actividad-participacion-1', 'tarea-1'];
+  var unidad1Open  = unidad1Pages.indexOf(active) !== -1;
+  var chevRot1     = unidad1Open ? 'transform:rotate(-180deg);' : '';
 
   function navLink(page, href, icon, label) {
     var isActive = active === page;
@@ -33,9 +36,23 @@ function getSidebarHTML(cfg) {
     +         '<i class="fas fa-chevron-down accordion-icon nav-label" style="transition:transform 0.3s ease;' + chevRot + '"></i>'
     +       '</div>'
     +       '<ul class="submenu" style="display:' + (introOpen ? 'block' : 'none') + ';padding-left:1.5rem;list-style:none;margin:0.5rem 0;">'
-    +         '<li class="nav-item" style="margin-bottom:0.5rem;">' + navLink('herramientas', 'pages/introduccion/herramientas.html', 'fas fa-toolbox', 'Herramientas') + '</li>'
-    +         '<li class="nav-item" style="margin-bottom:0.5rem;">' + navLink('proyecto-final', 'pages/introduccion/proyecto-final.html', 'fas fa-rocket', 'Proyecto Final') + '</li>'
-    +         '<li class="nav-item">' + navLink('examen-diagnostico', 'pages/introduccion/examen-diagnostico.html', 'fas fa-clipboard-check', 'Diagnóstico') + '</li>'
+    +         '<li class="nav-item" style="margin-bottom:0.5rem;">' + navLink('herramientas', 'pages/introduccion/herramientas/', 'fas fa-toolbox', 'Herramientas') + '</li>'
+    +         '<li class="nav-item" style="margin-bottom:0.5rem;">' + navLink('proyecto-final', 'pages/introduccion/proyecto-final/', 'fas fa-rocket', 'Proyecto Final') + '</li>'
+    +         '<li class="nav-item">' + navLink('examen-diagnostico', 'pages/introduccion/examen-diagnostico/', 'fas fa-clipboard-check', 'Diagnóstico') + '</li>'
+    +       '</ul>'
+    +     '</li>'
+    +     '<li class="nav-item accordion-item">'
+    +       '<div class="nav-link accordion-toggle' + (unidad1Open ? ' active' : '') + '" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">'
+    +         '<div style="display:flex;align-items:center;">'
+    +           '<i class="fas fa-layer-group"></i>'
+    +           '<span class="nav-label">Unidad 1.- Ing. de Requerimientos</span>'
+    +         '</div>'
+    +         '<i class="fas fa-chevron-down accordion-icon nav-label" style="transition:transform 0.3s ease;' + chevRot1 + '"></i>'
+    +       '</div>'
+    +       '<ul class="submenu" style="display:' + (unidad1Open ? 'block' : 'none') + ';padding-left:1.5rem;list-style:none;margin:0.5rem 0;">'
+    +         '<li class="nav-item" style="margin-bottom:0.5rem;">' + navLink('presentacion', 'pages/unidad1/presentacion/', 'fas fa-chalkboard-teacher', 'Presentación') + '</li>'
+    +         '<li class="nav-item" style="margin-bottom:0.5rem;">' + navLink('actividad-participacion-1', 'pages/unidad1/actividad-participacion-1/', 'fas fa-comments', 'Actividad de Participación 1') + '</li>'
+    +         '<li class="nav-item">' + navLink('tarea-1', 'pages/unidad1/tarea-1/', 'fas fa-tasks', 'Tarea 1') + '</li>'
     +       '</ul>'
     +     '</li>'
     +   '</ul>'
@@ -160,16 +177,19 @@ function initSidebar() {
 }
 
 function initAccordion() {
-  var toggle  = document.querySelector('.accordion-toggle');
-  var submenu = document.querySelector('.submenu');
-  if (!toggle || !submenu) return;
+  var toggles = document.querySelectorAll('.accordion-toggle');
+  toggles.forEach(function(toggle) {
+    var item    = toggle.closest('.accordion-item');
+    var submenu = item ? item.querySelector('.submenu') : null;
+    if (!submenu) return;
 
-  toggle.addEventListener('click', function() {
-    var icon   = toggle.querySelector('.accordion-icon');
-    var isOpen = submenu.style.display === 'block';
-    submenu.style.display = isOpen ? 'none' : 'block';
-    if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(-180deg)';
-    toggle.classList.toggle('active', !isOpen);
+    toggle.addEventListener('click', function() {
+      var icon   = toggle.querySelector('.accordion-icon');
+      var isOpen = submenu.style.display === 'block';
+      submenu.style.display = isOpen ? 'none' : 'block';
+      if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(-180deg)';
+      toggle.classList.toggle('active', !isOpen);
+    });
   });
 }
 
