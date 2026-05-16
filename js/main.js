@@ -8,7 +8,7 @@ function getSidebarHTML(cfg) {
   var introPages = ['herramientas', 'proyecto-final', 'examen-diagnostico'];
   var introOpen = introPages.indexOf(active) !== -1;
   var chevRot = introOpen ? 'transform:rotate(-180deg);' : '';
-  var unidad1Pages = ['presentacion', 'actividad-participacion-1', 'tarea-1'];
+  var unidad1Pages = ['presentacion', 'actividad-participacion-1', 'tarea-1', 'actividad-participacion-2', 'tarea-2'];
   var unidad1Open = unidad1Pages.indexOf(active) !== -1;
   var chevRot1 = unidad1Open ? 'transform:rotate(-180deg);' : '';
 
