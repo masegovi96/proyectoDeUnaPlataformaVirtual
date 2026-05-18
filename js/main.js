@@ -8,7 +8,7 @@ function getSidebarHTML(cfg) {
   var introPages = ['herramientas', 'proyecto-final', 'examen-diagnostico'];
   var introOpen = introPages.indexOf(active) !== -1;
   var chevRot = introOpen ? 'transform:rotate(-180deg);' : '';
-  var unidad1Pages = ['presentacion', 'actividad-participacion-1', 'tarea-1', 'actividad-participacion-2', 'tarea-2'];
+  var unidad1Pages = ['presentacion', 'actividad-participacion-1', 'tarea-1', 'actividad-participacion-2', 'tarea-2', 'tarea-3', 'entregable-1'];
   var unidad1Open = unidad1Pages.indexOf(active) !== -1;
   var chevRot1 = unidad1Open ? 'transform:rotate(-180deg);' : '';
 
@@ -55,6 +55,8 @@ function getSidebarHTML(cfg) {
     + '<li class="nav-item">' + navLink('tarea-1', 'pages/unidad1/tarea-1/', 'fas fa-tasks', 'Tarea 1') + '</li>'
     + '<li class="nav-item">' + navLink('actividad-participacion-2', 'pages/unidad1/actividad-participacion-2/', 'fas fa-comments', 'Actividad de Participación 2') + '</li>'
     + '<li class="nav-item">' + navLink('tarea-2', 'pages/unidad1/tarea-2/', 'fas fa-tasks', 'Tarea 2') + '</li>'
+    + '<li class="nav-item">' + navLink('tarea-3', 'pages/unidad1/tarea-3/', 'fas fa-tasks', 'Tarea 3') + '</li>'
+    + '<li class="nav-item">' + navLink('entregable-1', 'pages/unidad1/entregable-1/', 'fas fa-tasks', 'Proyecto Final Primer Entregable') + '</li>'
     + '</ul>'
     + '</li>'
     + '</ul>'
